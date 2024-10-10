@@ -1,6 +1,6 @@
 # TSFM for Load-forecasting
 
-## Project Description:
+## Project Description
 Accurate short-term energy load forecasting (STLF) is essential for decarbonizing the buildings sector, which accounts for about one-third of global energy consumption and greenhouse gas (GHG) emissions. Accurate forecasts enable efficient energy management 
 by predicting future energy needs, aligning supply with demand, reducing reliance on fossil fuels, integrating renewable energy sources, and optimizing energy use within buildings. While various methods—ranging from statistical to machine learning—have been proposed, 
 their evaluation often focuses on a limited number of buildings, hindering scalability and generalizability. To address these scalability limitations, transfer learning has emerged as a promising solution by leveraging data from similar buildings to enhance forecasting 
@@ -12,7 +12,7 @@ To address this gap, we analyze the performance of four state-of-the-art open-so
 
 In this repository, we present a comprehensive evaluation of four TSFMs for zero-shot performance on a large-scale dataset comprising over 
 1,900 real-world residential and commercial buildings from BuildingsBench Evaluation Platform.
-#### STLF:
+#### STLF
 The univariate short-term load forecasting (STLF) problem can be defined
 as follows: Given *H* past load values *x*<sub>*t* − *H* : *t*</sub>, we
 aim to predict the conditional distribution of *T* unobserved future
@@ -20,12 +20,12 @@ load values *y*<sub>*t* + 1 : *t* + *T*</sub>. For our analysis, we
 considered the STLF problem of forecasting the next day’s load values (T
 = 24) using data from the past week (H = 168).
 
-## Dataset:
+## Dataset
 [BuildingsBench](https://github.com/NREL/BuildingsBench.git) is an open-source evaluation platform designed to benchmark load forecasting models. It consists of the Buildings-900K dataset, a large-scale dataset of hourly energy time series from 900K simulated buildings in the USA,
 and a test dataset collected from over 1,900 real residential and commercial buildings across the world. Additionally, the BuildingsBench platform presents a transformer-based foundation model which was pre-trained using the Buildings-900K dataset. 
 They compare its performance with various state-of-the-art machine learning algorithms under zero-shot and transfer learning settings. In this project, we leverage the same test buildings dataset as used in the BuildingsBench for evaluation and also compare the zero-shot performance of the four selected TSFMs with all other models included in BuildingsBench.
 The Datset can be downloaded from the BuildingsBench [repository](https://github.com/NREL/BuildingsBench)  or can be accessed directly from [Data](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=buildings-bench).
-#### Sliding Window Extraction:
+#### Sliding Window Extraction
 We began by extracting sliding windows for each building and year separately. Specifically, we employed an 8-day sliding window comprising a 192-hour load sub-sequence. The initial 7 days (168 hourly energy meter readings) 
 served as context to forecast the subsequent 24-hour readings of the $8^{th}$ day, similar to the BuildingsBench.
 
@@ -42,7 +42,7 @@ served as context to forecast the subsequent 24-hour readings of the $8^{th}$ da
 | SMART                | 5                        | 2014-16            | 3,613                  |
 | Sceaux               | 1                        | 2007-10            | 1,741                  |
 
-## Getting Started:
+## Getting Started
 We recommend using [Anaconda](https://www.anaconda.com/download) to run the experiments. Create the separate conda environment using the (modelname)_environment.yml found
 under each model directory in the Notebooks. 
 ```
@@ -51,7 +51,7 @@ conda env create -f <modelname>_environment.yml
 For TimesFM, kindly follow the respective [READEME.md](https://github.com/google-research/timesfm/blob/master/README.md) for the installation. For more information about each model, kindly look in 
 their Github repositories.
 
-## Benchmarking:
+## Benchmarking
 Comparison of models performance using median NRMSE. First four category results are adopted
 from BuildingsBench. Best model under each category is in Italics. (Cat.: Category)
 
@@ -83,7 +83,7 @@ from BuildingsBench. Best model under each category is in Italics. (Cat.: Catego
 | Moirai (14M)                                         | 25.0                       | 94.98                      |
 | Chronos (46M)                                        | *13.56*                    | 87.85                      |
 
-## Directory structure:
+## Directory structure
 ```
 .
 └── Notebooks/
