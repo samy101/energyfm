@@ -8,8 +8,7 @@ accuracy for target buildings while reducing data requirements. In recent years,
 enabling them to learn generalizable temporal patterns. Unlike transfer learning, TSFMs adopt a holistic approach, allowing them to make accurate forecasts on new, unseen time series without requiring any retraining or fine-tuning. This makes them suitable for implementing 
 STLF for any building using a single model. However, a comprehensive assessment of their applicability and performance for large-scale STLF is still lacking, which is necessary for their adoption. 
 
-To address this gap, we analyze the performance of four state-of-the-art open-source TSFMs -- [Chronos](https://github.com/amazon-science/chronos-forecasting), [Lag-Llama](https://github.com/time-series-foundation-models/lag-llama.git), 
-[Moirai](https://github.com/SalesforceAIResearch/uni2ts), and [TimesFM](https://github.com/google-research/timesfm) -- for STLF in both commercial and residential buildings.
+To address this gap, we analyze the performance of four state-of-the-art open-source TSFMs -- [Chronos](https://github.com/amazon-science/chronos-forecasting), [Lag-Llama](https://github.com/time-series-foundation-models/lag-llama.git), [Moirai](https://github.com/SalesforceAIResearch/uni2ts), and [TimesFM](https://github.com/google-research/timesfm) -- for STLF in both commercial and residential buildings.
 
 In this repository, we present a comprehensive evaluation of four TSFMs for zero-shot performance on a large-scale dataset comprising over 
 1,900 real-world residential and commercial buildings from BuildingsBench Evaluation Platform.
@@ -24,8 +23,8 @@ considered the STLF problem of forecasting the next day’s load values (T
 ## Dataset:
 [BuildingsBench](https://github.com/NREL/BuildingsBench.git) is an open-source evaluation platform designed to benchmark load forecasting models. It consists of the Buildings-900K dataset, a large-scale dataset of hourly energy time series from 900K simulated buildings in the USA,
 and a test dataset collected from over 1,900 real residential and commercial buildings across the world. Additionally, the BuildingsBench platform presents a transformer-based foundation model which was pre-trained using the Buildings-900K dataset. 
-They compare its performance with various state-of-the-art machine learning algorithms under zero-shot and transfer learning settings. In this project, we leverage the same test buildings dataset as used in the BuildingsBench for evaluation and also compare the 
-zero-shot performance of the four selected TSFMs with all other models included in BuildingsBench.
+They compare its performance with various state-of-the-art machine learning algorithms under zero-shot and transfer learning settings. In this project, we leverage the same test buildings dataset as used in the BuildingsBench for evaluation and also compare the zero-shot performance of the four selected TSFMs with all other models included in BuildingsBench.
+The Datset can be downloaded from the BuildingsBench [repository](https://github.com/NREL/BuildingsBench)  or can be accessed directly from [Data](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=buildings-bench)
 #### Sliding Window Extraction:
 We began by extracting sliding windows for each building and year separately. Specifically, we employed an 8-day sliding window comprising a 192-hour load sub-sequence. The initial 7 days (168 hourly energy meter readings) 
 served as context to forecast the subsequent 24-hour readings of the $8^{th}$ day, similar to the BuildingsBench.
@@ -44,11 +43,13 @@ served as context to forecast the subsequent 24-hour readings of the $8^{th}$ da
 | Sceaux               | 1                        | 2007-10            | 1,741                  |
 
 ## Getting Started:
-We recommend using [Anaconda](https://www.anaconda.com/download) to run the experiments. Create the conda environment using the <modelname>_environment.yml found
-under each model directory in the Notebooks.
+We recommend using [Anaconda](https://www.anaconda.com/download) to run the experiments. Create the separate conda environment using the <modelname>_environment.yml found
+under each model directory in the Notebooks. 
 ```
 conda env create -f <modelname>_environment.yml
 ```
+For TimesFM, kindly follow the respective [READEME.md](https://github.com/google-research/timesfm/blob/master/README.md) for the installation. For more information about each model, kindly look in 
+their Github repositories.
 
 ## Benchmarking:
 Comparison of models performance using median NRMSE. Results adopted
