@@ -43,6 +43,13 @@ served as context to forecast the subsequent 24-hour readings of the $8^{th}$ da
 | SMART                | 5                        | 2014-16            | 3,613                  |
 | Sceaux               | 1                        | 2007-10            | 1,741                  |
 
+## Getting Started:
+We recommend using [Anaconda](https://www.anaconda.com/download) to run the experiments. Create the conda environment using the <modelname>_environment.yml found
+under each model directory in the Notebooks.
+```
+conda env create -f <modelname>_environment.yml
+```
+
 ## Benchmarking:
 Comparison of models performance using median NRMSE. Results adopted
 from BuildingsBench. Best model under each category is in Italics. (Cat.: Category)
