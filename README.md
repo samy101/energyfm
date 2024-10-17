@@ -25,7 +25,7 @@ considered the STLF problem of forecasting the next day’s load values (T
 and a test dataset collected from over 1,900 real residential and commercial buildings across the world. Additionally, the BuildingsBench platform presents a transformer-based foundation model which was pre-trained using the Buildings-900K dataset. 
 They compare its performance with various state-of-the-art machine learning algorithms under zero-shot and transfer learning settings. In this project, we leverage the same test buildings dataset as used in the BuildingsBench for evaluation and also compare the zero-shot performance of the four selected TSFMs with all other models included in BuildingsBench.
 The Datset can be downloaded from the BuildingsBench [repository](https://github.com/NREL/BuildingsBench)  or can be accessed directly from [Data](https://data.openei.org/s3_viewer?bucket=oedi-data-lake&prefix=buildings-bench). 
-After downloading the datasets, we convert and create the combined csv files for Buildings-900K-test and Residential Buildings, which is given in Dataset_creator folder of Notebook directory.
+After downloading the datasets, we convert and create the combined csv files for Buildings-900K-test and Residential Buildings, which is given in [Dataset_creator](Notebooks/Dataset_creator) folder of Notebook directory.
 #### Sliding Window Extraction
 We began by extracting sliding windows for each building and year separately. Specifically, we employed an 8-day sliding window comprising a 192-hour load sub-sequence. The initial 7 days (168 hourly energy meter readings) 
 served as context to forecast the subsequent 24-hour readings of the $8^{th}$ day, similar to the BuildingsBench.
